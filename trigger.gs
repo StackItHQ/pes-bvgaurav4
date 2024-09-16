@@ -18,8 +18,8 @@ function sending(e) {
   Logger.log('id: '+spreadsheetId)
   Logger.log('x' + row);
   Logger.log('y'+ col);
-  var url = 'https://ff6f-101-0-62-251.ngrok-free.app/lol'; 
-  if(newValue=="undefined")
+  var url = 'https://ff6f-101-0-62-251.ngrok-free.app/update'; 
+  if(newValue==undefined)
   {
     Logger.log('New value: ' + newValue);
     url='https://ff6f-101-0-62-251.ngrok-free.app/delete';
