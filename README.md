@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/AHFn7Vbn)
 # Superjoin Hiring Assignment
 
 ### Welcome to Superjoin's hiring assignment! 🚀
@@ -59,3 +60,71 @@ All the best ✨.
 
 ## Developer's Section
 *Add your video here, and your approach to the problem (optional). Leave some comments for us here if you want, we will be reading this :)*
+
+## My Approach
+
+here is my approach 
+first i made a server which can handle the CRUD and the spreadsheets
+
+1. Database
+      - the database I used was MYSQL cause its easy and has a better performance compared to postgres
+      - i made 2 tables the schema is given in the my_sql.sql file
+2. Google Cloud api
+      - i have used google spread sheets and google apps scripts apis and drive api 
+      - this is for creating and CRUD for the spreadsheets
+3. NGROK
+    - this is for tunneling
+
+
+I made a server using python flask and made endpoints for he CRUD operations ins server.py file.
+
+## requirments
+
+    pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
+
+    pip install gspread
+
+    pip install flask
+
+    pip install pyngrok 
+
+
+the functions file has the all the spreadsheets CRUD operations
+
+## Usage
+    
+
+    first start the server by running server  by
+    python server.py
+
+    then on a different terminal run the tunnel
+
+    python tunneling.py
+
+    this will setup a tunnel for the server 
+    this is set to post 5000
+
+- then open postman or send a post request  to the server at the  create_spreadsheet endpoint to create the spreadsheet
+
+- then u will get the spreadsheet_id open this spread sheets and add the extentions apps scripts and paste the trigger.gs file in the code editor to create a trigger this is for the 1. Real-time Synchronisation of the sheet and the database 
+
+appscrits.json
+this is the settings to make it visible.
+and paste it in that
+![alt text](image.png)
+
+i coudnt auto mate this cause i kept getting 403 error even with the SCOPES set.
+
+- create a trigger and change the event type to "on edit"
+
+- this will notify the server the changes to the server and the server will change the data on the spread sheet if u change the data on the database.
+
+
+i have done the authorization so u dont have to.
+
+## Demo
+
+videos
+
+https://drive.google.com/file/d/116hI-me14GOLwjnG9RXVzwYZHWCA6lq6/view?usp=sharing, 
+https://drive.google.com/file/d/1rJTKIlFOQIm2YH-v9r1HohS06SgSvcx_/view?usp=sharing
