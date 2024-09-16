@@ -2,3 +2,27 @@ this is a test push
 
 
 AIzaSyCyGtqlaVkgcZcHev1tjNv2Ou2txP3dg_k
+
+{
+  "timeZone": "Asia/Kolkata",
+   "oauthScopes": [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/script.external_request"
+  ],
+  "dependencies": {
+    "libraries": [
+      {
+        "userSymbol": "Untitledproject",
+        "version": "0",
+        "libraryId": "1KRD1SO21QbkrjRz2GhQ2lfWMYAgQa5G4mA-0qz48g_PfD9SWTJgQB6Js",
+        "developmentMode": true
+      }
+    ]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}
+
+
+
+19fraBUiknpCZq-HNF1l33GRXbo7gthXPcQcV4_c7Vzn_pA35LrMAWRCZ

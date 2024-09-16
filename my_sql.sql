@@ -18,4 +18,12 @@ create table spreadsheet_data(
     PRIMARY KEY (spreadsheet_id, data_index,x,y),
     FOREIGN KEY (spreadsheet_id) REFERENCES spreadsheet(spreadsheet_id)
 );
-    
+--  i forgot cascadings
+
+ALTER TABLE spreadsheet_data DROP FOREIGN KEY spreadsheet_id;
+
+ALTER TABLE spreadsheet_data
+ADD CONSTRAINT spreadsheet_id
+FOREIGN KEY (spreadsheet_id) REFERENCES spreadsheet(spreadsheet_id)
+ON DELETE CASCADE
+ON UPDATE CASCADE;

@@ -2,13 +2,31 @@ import google.auth
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 import os
+import os.path
 
+import gspread
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+
+
+
+
+
+
+SCOPES = [
+    'https://www.googleapis.com/auth/spreadsheets',
+    'https://www.googleapis.com/auth/script.projects',
+    'https://www.googleapis.com/auth/script.deployments',
+    'https://www.googleapis.com/auth/drive',
+    'https://www.googleapis.com/auth/script.external_request',
+    'https://www.googleapis.com/auth/script.scriptapp',
+    'https://www.googleapis.com/auth/script.send_mail',
+    'https://www.googleapis.com/auth/script.storage',
+    'https://www.googleapis.com/auth/script.webapp.deploy'
+]
 
 def create(title):
   """
@@ -41,3 +59,27 @@ def create(title):
     print(f"An error occurred: {error}")
     return error
 
+def updationg_cells(x,y,value,id,s):
+    SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+    creds = Credentials.from_authorized_user_file("token.json",scopes=SCOPES)
+    client=gspread.authorize(creds)
+    SAMPLE_SPREADSHEET_ID=id
+    workbook =client.open_by_key(SAMPLE_SPREADSHEET_ID)
+    sheet=workbook.worksheet(s)
+    print(sheet)
+    if sheet:
+        cell_address = f"{x}{y}"
+        sheet.update_acell(cell_address, value)
+        return True
+    return False
+
+
+def to_a1_notation(coordinates):
+    column_number, row_number = coordinates
+    column_letter = ''
+    
+    while column_number > 0:
+        column_number, remainder = divmod(column_number - 1, 26)
+        column_letter = chr(65 + remainder) + column_letter
+    
+    return f"{column_letter}"

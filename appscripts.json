@@ -1,0 +1,19 @@
+{
+    "timeZone": "Asia/Kolkata",
+    "oauthScopes": [
+      "https://www.googleapis.com/auth/spreadsheets",
+      "https://www.googleapis.com/auth/script.external_request"
+    ],
+    "dependencies": {
+      "libraries": [
+        {
+          "userSymbol": "Untitledproject",
+          "version": "0",
+          "libraryId": "1KRD1SO21QbkrjRz2GhQ2lfWMYAgQa5G4mA-0qz48g_PfD9SWTJgQB6Js",
+          "developmentMode": true
+        }
+      ]
+    },
+    "exceptionLogging": "STACKDRIVER",
+    "runtimeVersion": "V8"
+  }
